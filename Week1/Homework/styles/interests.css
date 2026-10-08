@@ -31,6 +31,15 @@
     box-shadow: 0 2px 6px rgba(19, 112, 106, 0.1);
 }
 
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(19, 112, 106, 0.2);
+}
+
 .card-img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -59,12 +68,27 @@
     font-size: 14px;
 }
 
+.btn-like,
+.btn-dislike {
+    transition: background-color 0.3s, color 0.3s;
+}
+
 .btn-like {
     background-color: #cfe7f7;
     color: #2b6a94;
 }
 
+.btn-like:hover {
+    background-color: #3b8fd0;
+    color: #ffffff;
+}
+
 .btn-dislike {
     background-color: #fad3cf;
     color: #b5443a;
+}
+
+.btn-dislike:hover {
+    background-color: #e0594c;
+    color: #ffffff;
 }
