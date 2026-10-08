@@ -1,0 +1,49 @@
+.album {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.alubm::-webkit-scrollbar {
+    display:none;
+}
+
+.album img {
+    flex-shrink: 0;
+    width: 240px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    scroll-snap-align: start;
+}
+
+.banner {
+    overflow:hidden;
+    margin-top: 24px;
+}
+
+.banner-track {
+    display: flex;
+    width: max-content;
+    animation: slide 30s linear infinite;
+}
+
+.banner-group {
+    display: flex;
+    gap: 16px;
+    padding-right: 16px;
+}
+
+.banner img {
+    flex-shrink: 0;
+    width: 240px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.banner:hover .banner-track {
+    animation-play-state: paused;
+}   
