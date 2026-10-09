@@ -1,0 +1,94 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(19, 112, 106, 0.1);
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(19, 112, 106, 0.2);
+}
+
+.card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit : cover;
+}
+
+.card-title {
+    padding: 12px 8px 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 0 12px 16px;
+}
+
+.btn-like,
+.btn-dislike {
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+.btn-like,
+.btn-dislike {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-like {
+    background-color: #cfe7f7;
+    color: #2b6a94;
+}
+
+.btn-like:hover {
+    background-color: #3b8fd0;
+    color: #ffffff;
+}
+
+.btn-dislike {
+    background-color: #fad3cf;
+    color: #b5443a;
+}
+
+.btn-dislike:hover {
+    background-color: #e0594c;
+    color: #ffffff;
+}
