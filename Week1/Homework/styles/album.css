@@ -6,7 +6,7 @@
     scrollbar-width: none;
 }
 
-.alubm::-webkit-scrollbar {
+.album::-webkit-scrollbar {
     display:none;
 }
 
