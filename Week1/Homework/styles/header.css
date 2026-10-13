@@ -21,6 +21,15 @@
     transition: box-shadow 0.3s;
 }
 
+.avatar {
+    transition: box-shadow 0.3s;
+}
+
+.avatar:hover {
+    box-shadow: 0 4px 12px rgba(19, 112, 106, 0.5)
+}
+
+
 .title {
     max-width: 100%;
     font-size: 22px;
@@ -31,6 +40,14 @@
 
 .social {
     display: block;
+}
+
+.social {
+    transition: transform 0.2s;
+}
+
+.social:hover {
+    transform: translateY(-2px);
 }
 
 .social img {
@@ -44,3 +61,4 @@
         font-size: 16px;
     }
 }
+
