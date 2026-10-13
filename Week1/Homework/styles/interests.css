@@ -75,17 +75,24 @@
     color: #2b6a94;
 }
 
-.btn-like:hover {
-    background-color: #3b8fd0;
-    color: #ffffff;
-}
-
 .btn-dislike {
     background-color: #fad3cf;
     color: #b5443a;
 }
 
-.btn-dislike:hover {
-    background-color: #e0594c;
-    color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(19, 112, 106, 0.2);
+    }
+
+    .btn-like:hover {
+        background-color: #3b8fd0;
+        color: #ffffff;
+    }
+
+    .btn-dislike:hover {
+        background-color: #e0594c;
+        color: #ffffff;
+    }
 }
