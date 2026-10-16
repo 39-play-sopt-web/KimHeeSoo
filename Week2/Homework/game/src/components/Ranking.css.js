@@ -4,7 +4,7 @@ import { vars } from '../styles/theme.css.js';
 export const container = style ({
     width: '100%',
     maxWidth: '45rem',
-    border: '1px solid ${vars.color.border}',
+    border: `1px solid ${vars.color.border}`,
     padding: '1.5rem',
     borderRadius:vars.radius.lg,
     backgroundColor: vars.color.surface,
@@ -20,7 +20,7 @@ export const titleRow = style ({
 
 export const resetButtion = style({
     padding: '0.5rem 1rem',
-    border: '1px solid ${vars.color.danger}',
+    border: `1px solid ${vars.color.danger}`,
     borderRadius: vars.radius.sm,
     backgroundColor: 'transparent',
     color: vars.color.danger,

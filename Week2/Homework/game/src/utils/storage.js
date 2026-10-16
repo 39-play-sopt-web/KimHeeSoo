@@ -21,7 +21,7 @@ export const saveRecord = (record) => {
 };
 
 // 모든 기록 삭제 
-export const deleteallRecords = () => {
+export const deleteAllRecords = () => {
     try {
         localStorage.removeItem(STORAGE_KEY);
     } catch (err) {
