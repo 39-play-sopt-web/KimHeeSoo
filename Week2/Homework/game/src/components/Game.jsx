@@ -54,7 +54,7 @@ const Game = ({ level, onStart, onFinish }) => {
           <button
             key={index}
             type="button"
-            className={styles.cell({ empty: value === null })}
+            className={styles.cell({ empty: value === null, size })}
             disabled={value === null}
             aria-label={value === null ? '빈 칸' : `${value}`}
             onClick={() => handleCellClick(index)}

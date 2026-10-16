@@ -37,13 +37,11 @@ export const board = style({
 
 export const cell = recipe({
   base: {
-    width: '9rem',
-    height: '9rem',
     borderRadius: vars.radius.sm,
     fontSize: vars.font.size.display,
     fontWeight: vars.font.weight.extrabold,
     color: vars.color.text,
-    transition: 'transform 0.15s, box-shadow 0.15s',
+    transition: 'transform 0.1s, box-shadow 0.15s, background-color 0.1s',
   },
   variants: {
     empty: {
@@ -56,13 +54,22 @@ export const cell = recipe({
           transform: 'translateY(-2px)',
           boxShadow: vars.shadow.cardHover,
         },
+        ':active': {
+          transform: 'scale(0.92)',
+          backgroundColor: vars.color.mintHover,
+          boxShadow: 'none',
+        },
       },
-
       true: {
         border: '1px dashed rgba(255, 255, 255, 0.7)',
         backgroundColor: vars.color.surfaceDim,
         cursor: 'default',
       },
+    },
+    size: {
+      3: { width: '9rem', height: '9rem' },
+      4: { width: '7rem', height: '7rem' },
+      5: { width: '5.75rem', height: '5.75rem' },
     },
   },
 });
