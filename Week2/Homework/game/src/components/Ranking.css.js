@@ -12,7 +12,7 @@ export const container = style ({
 });
 
 export const titleRow = style ({
-    display: flex,
+    display: 'flex',
     alignitems: 'center',
     justifyContent: 'space-between',
     marginBottom: '1rem',
