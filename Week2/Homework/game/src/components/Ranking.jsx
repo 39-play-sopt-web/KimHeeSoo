@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { clearRecords, loadRecords } from '../utils/storage.js';
+import { deleteallRecords, loadRecords } from '../utils/storage.js';
 import { formatDate } from '../utils/format.js';
 import * as styles from './Ranking.css.js';
 
@@ -48,3 +48,5 @@ const Ranking = () => {
         </section>
     );
 };
+
+export default Ranking;

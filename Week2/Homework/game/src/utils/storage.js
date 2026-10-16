@@ -3,7 +3,7 @@ import { STORAGE_KEY } from '../constants/game.js'
 // 기록 불러오기
 export const loadRecords = () => {
     try {
-        const saved = JSON.parse(localstorage.getItem(STORAGE_KEY));
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
         return Array.isArray(saved) ? saved : [];
     } catch (err) {
         console.log(err);
