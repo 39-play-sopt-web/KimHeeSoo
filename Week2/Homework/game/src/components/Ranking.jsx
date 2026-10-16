@@ -5,7 +5,10 @@ import * as styles from './Ranking.css.js';
 
 const Ranking = () => {
   const [records, setRecords] = useState(loadRecords);
-  const sortedRecords = [...records].sort((a, b) => a.time - b.time);
+  const sortedRecords = [...records].sort((a, b) => {
+  if (a.level !== b.level) return b.level - a.level;
+  return a.time - b.time;
+});
 
   const handleReset = () => {
     deleteAllRecords();
