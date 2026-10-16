@@ -12,10 +12,8 @@ const Header = ({ tab, onTabChange, level, onLevelChange, elapsed }) => {
     return (
         <header className={styles.header}> {} {/* 좌측 */}
          <h1 className={styles.title}> {}
-          <span className={styles.logo} aria-hidden="true"> /* 장식용 로고는 스크린 리더가 읽지 X */
-           1 2
-           <br />3 4
-           </span>
+          <span className={styles.logo} aria-hidden="true">{'\u{1F522}'}
+          </span>
            숫자 클릭 게임
         </h1> {}
 
@@ -33,7 +31,7 @@ const Header = ({ tab, onTabChange, level, onLevelChange, elapsed }) => {
             ))}
             </nav>
             {}
-            {tab == TABS.GAME && ( /* 우측 */
+            {tab === TABS.GAME && ( /* 우측 */
                 <div className={styles.right}>
                     {}
                     <select 

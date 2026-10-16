@@ -21,18 +21,8 @@ export const title = style({
 });
 
 export const logo = style({
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '1.5rem',
-  height: '1.5rem',
-  borderRadius: '0.3rem',
-  backgroundColor: vars.color.logo,
-  color: vars.color.onAccent,
-  fontSize: vars.font.size.logo,
-  fontWeight: vars.font.weight.bold,
-  lineHeight: 1.1,
-  textAlign: 'center',
+  fontSize: '1.5rem',
+  lineHeight: 1,
 });
 
 export const nav = style({
