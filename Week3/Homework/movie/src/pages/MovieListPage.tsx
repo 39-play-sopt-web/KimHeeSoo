@@ -106,9 +106,9 @@ const MovieListPage = () => {
 
             <div ref={sentinelRef} aria-hidden />
 
-            {isFirstLoad && isLoading && <Message>다음 영화를 불러오는 중이에요...</Message>}
-            {isFirstLoad && errorMessage && <Message role="alert">{errorMessage}</Message>}
-            {isFirstLoad && !hasNextPage && <Message>마지막 영화까지 모두 봤어요.</Message>}
+            {!isFirstLoad && isLoading && <Message>다음 영화를 불러오는 중이에요...</Message>}
+            {!isFirstLoad && errorMessage && <Message role="alert">{errorMessage}</Message>}
+            {!isFirstLoad && !hasNextPage && <Message>마지막 영화까지 모두 봤어요.</Message>}
         </Page>
     );
 };
