@@ -56,18 +56,39 @@ const Card = styled.article`
     border-radius: ${({ theme }) => theme.radius.md};
     background-color: ${({ theme }) => theme.colors.surface};
     box-shadow: ${({ theme }) => theme.shadow.card};
+    border: 1px solid ${({ theme }) => theme.colors.border};
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+    transform: translateY(-6px);
+    box-shadow: ${({ theme }) => theme.shadow.cardHover};
+    border-color: ${({ theme }) => theme.colors.primary};
+
+    @media (prefers-reduced-motion: reduce) {
+    &,
+    img {
+        transition: none;
+    }
+    &:hover,
+    &:hover img {
+      transition: none;
+      }
+    }
 `;
 
 const PosterBox = styled.div`
     position: relative;
     aspect-ratio: 2 / 3;
     background-color: ${({ theme }) => theme.colors.surfaceHover};
+    overflow: hidden; 
     `;
 
 const Poster = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.35s ease;
 `;
 
 const NoPoster = styled.div`
