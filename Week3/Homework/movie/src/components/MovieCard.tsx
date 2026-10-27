@@ -1,19 +1,13 @@
 import styled from '@emotion/styled'
 import { memo, useState } from 'react';
 import { Link } from 'react-router';
+import { formatRating, formatReleaseDate } from '../utils/format';
 import type { MovieListItem } from '../types/movie';
 import { getImageUrl } from '../utils/image';
 
 interface MovieCardProps {
     movie: MovieListItem;
 }
-
-const formatReleaseDate = (date: string): string => {
-    if (!date) return "개봉일 미정";
-    const parsed = new Date(date);
-    if (Number.isNaN(parsed.getTime())) return date;
-    return parsed.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
-};
 
 const MovieCard = memo(({ movie }: MovieCardProps) => {
     const [hasImageError, setHasImageError] = useState(false);
@@ -33,7 +27,7 @@ const MovieCard = memo(({ movie }: MovieCardProps) => {
                     <NoPoster>No Image</NoPoster>
                 )}
 
-                <RatingBadge>★ {movie.vote_average.toFixed(1)}</RatingBadge>
+                <RatingBadge>★ {formatRating(movie.vote_average)}</RatingBadge>
             </PosterBox>
 
             <Info>
