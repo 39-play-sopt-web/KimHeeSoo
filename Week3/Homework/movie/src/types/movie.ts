@@ -25,7 +25,7 @@ export interface ProductionCountry {
 }
 
 export interface SpokenLanguage {
-    iso_369_1: string;
+    iso_639_1: string;
     name: string;
     english_name: string;
 }
@@ -44,10 +44,10 @@ export interface MovieDetail {
     status: string;
     overview: string;
 
-    orginal_title: string;
-    orginal_language: string;
+    original_title: string;
+    original_language: string;
     production_countries: ProductionCountry[];
     spoken_languages: SpokenLanguage[];
-    buget: number;
+    budget: number;
     revenue: number;
 }
