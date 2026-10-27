@@ -22,6 +22,7 @@ const MovieListPage = () => {
         setRatingKey(key);
         setPage(1);
         setMovies([]);
+        setIsLoading(true); 
         setHasNextPage(true);
         window.scrollTo(0, 0);
     };
