@@ -78,22 +78,22 @@ const NoPoster = styled.div`
     height: 100%,
     color: ${({ theme }) => theme.colors.textMuted};
     font-size: 14px,
-    font-weight: 600;
+    font-weight: 600,
 `;
 
 const RatingBadge = styled.span`
-    position: absoulte;
+    position: absolute;
     top: 12px;
     left: 12px;
     padding: 2px 8px;
     border-radius: ${({ theme }) => theme.radius.sm};
     background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primaryText};
     font-size: 13px;
-    font-weight: 700%;
+    font-weight: 700;
 `;
 
-const Info = styled .div`
+const Info = styled.div`
     display: flex;
     flex-direction: column;
     gap: 4px;

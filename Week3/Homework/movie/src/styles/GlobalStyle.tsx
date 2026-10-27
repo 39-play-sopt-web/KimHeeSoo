@@ -50,10 +50,14 @@ const GlobalStyle = () => {
             outline: 2px solid ${theme.colors.primary};
             outline-offset: 2px;
           }
+
+          ul, ol { list-style: none; }
         `}
         />
     );
 };
+
+
 
 export default GlobalStyle;
 
