@@ -6,7 +6,9 @@ export const getMovies = async (page: number, minRating: number, maxRating: numb
         params: {
             page,
             'vote_average.gte': minRating,
+            'vote_count.gte' : 100,
             'vote_average.lte': maxRating,
+            
         },
     });
     return data;
