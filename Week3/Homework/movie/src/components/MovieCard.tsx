@@ -123,7 +123,3 @@ const Overview = styled.p`
     -webkit-box-orient: vertical;
     overflow: hidden; 
 `;
-
-
-
-

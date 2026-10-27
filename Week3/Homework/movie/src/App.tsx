@@ -1,5 +1,7 @@
+import MovieListPage from './pages/MovieListPage';
+
 const App = () => {
-  return <h1>영화 탐색</h1>
+  return <MovieListPage/>;
 };
 
 export default App;
