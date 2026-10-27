@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { memo, useState } from 'react';
+import { Link } from 'react-router';
 import type { MovieListItem } from '../types/movie';
 import { getImageUrl } from '../utils/image';
 
@@ -19,7 +20,7 @@ const MovieCard = memo(({ movie }: MovieCardProps) => {
     const posterUrl = getImageUrl(movie.poster_path, 'w342');
 
     return (
-        <Card>
+        <Card to={`/movie/${movie.id}`}>
             <PosterBox>
                 {posterUrl && !hasImageError ? (
                     <Poster
@@ -48,7 +49,7 @@ MovieCard.displayName = 'MovieCard';
 
 export default MovieCard;
 
-const Card = styled.article`
+const Card = styled(Link)`
     display: flex;
     flex-direction: column;
     height: 100%;
