@@ -1,7 +1,8 @@
-import MovieListPage from './pages/MovieListPage';
+import { RouterProvider } from 'react-router/dom';
+import router from './router/Router';
 
 const App = () => {
-  return <MovieListPage/>;
+  return <RouterProvider router={router} />;
 };
 
 export default App;
