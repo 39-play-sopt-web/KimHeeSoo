@@ -3,9 +3,6 @@ import { vars } from './styles/theme.css';
 
 export const layout = style ({
     minHeight: '100vh',
-    background: `linear-gradient(160deg, ${vars.color.backgroundStart}, ${vars.color.backgroundEnd})`,
-    color: vars.color.text,
-
 });
 
 export const main = style ({
