@@ -27,7 +27,7 @@ const tokens = {
       body: '1rem',
       button: '1rem',
       caption: '0.875rem',
-      logo: '0.45rem',
+      logo: '1.5rem',
     },
     weight: {
       regular: '400',

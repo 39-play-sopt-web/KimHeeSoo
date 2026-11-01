@@ -21,7 +21,7 @@ export const title = style({
 });
 
 export const logo = style({
-  fontSize: '1.5rem',
+  fontSize: vars.font.size.logo,
   lineHeight: 1,
 });
 
