@@ -13,12 +13,12 @@ export const container = style ({
 
 export const titleRow = style ({
     display: 'flex',
-    alignitems: 'center',
+    alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: '1rem',
 });
 
-export const resetButtion = style({
+export const resetButton = style({
     padding: '0.5rem 1rem',
     border: `1px solid ${vars.color.danger}`,
     borderRadius: vars.radius.sm,
