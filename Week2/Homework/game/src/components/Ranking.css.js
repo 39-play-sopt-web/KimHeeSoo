@@ -26,7 +26,6 @@ export const resetButtion = style({
     color: vars.color.danger,
     fontSize: vars.font.size.button,
     fontWeight: vars.font.weight.semibold,
-    cursor: 'pointer',
     ':hover' : { backgroundColor: vars.color.danger, color: vars.color.onAccent }    
 });
 

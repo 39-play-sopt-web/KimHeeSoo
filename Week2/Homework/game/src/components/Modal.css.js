@@ -40,5 +40,4 @@ export const button = style({
   backgroundColor: vars.color.mint,
   fontSize: vars.font.size.button,
   fontWeight: vars.font.weight.bold,
-  cursor: 'pointer',
 });

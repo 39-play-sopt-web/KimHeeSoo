@@ -6,3 +6,7 @@ globalStyle('body', {
   background: `linear-gradient(160deg, ${vars.color.backgroundStart}, ${vars.color.backgroundEnd})`,
   color: vars.color.text,
 });
+
+globalStyle('button:not(:disabled)', {
+  cursor: 'pointer',
+});
