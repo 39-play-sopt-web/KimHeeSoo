@@ -1,4 +1,3 @@
-import { style } from '@vanilla-extract/css';
 import { LEVELS, LEVEL_OPTIONS, TABS } from '../constants/game.js';
 import { formatSeconds } from '../utils/format.js';
 import * as styles from './Header.css.js'; 
@@ -10,12 +9,12 @@ const MENUS = [
 
 const Header = ({ tab, onTabChange, level, onLevelChange, elapsed }) => {
     return (
-        <header className={styles.header}> {} {/* 좌측 */}
-         <h1 className={styles.title}> {}
+        <header className={styles.header}> {/* 좌측 */}
+         <h1 className={styles.title}> 
           <span className={styles.logo} aria-hidden="true">{'\u{1F522}'}
           </span>
            숫자 클릭 게임
-        </h1> {}
+        </h1> 
 
         <nav className={styles.nav} aria-label='메뉴'>  {/* 중앙 */}
             {MENUS.map(({ value, label }) => (
@@ -30,10 +29,9 @@ const Header = ({ tab, onTabChange, level, onLevelChange, elapsed }) => {
                </button>
             ))}
             </nav>
-            {}
+            
             {tab === TABS.GAME && ( /* 우측 */
                 <div className={styles.right}>
-                    {}
                     <select 
                      className={styles.select}
                      aria-label="레벨 선택"
@@ -47,8 +45,6 @@ const Header = ({ tab, onTabChange, level, onLevelChange, elapsed }) => {
                       ))} 
                      </select>
 
-                     {}
-                     {}
                      <span className={styles.timer} aria-live='off'> {/* 계속 바뀌는 값을 스크린 리더가 계속 읽지 못하도록 */}
                         {formatSeconds(elapsed)}초
                      </span>
