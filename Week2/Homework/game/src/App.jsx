@@ -17,6 +17,7 @@ const App = () => {
   const timer = useTimer();
 
   const handleTabChange = (nextTab) => {
+    if (nextTab === tab) return;
     timer.reset();
     setTab(nextTab);
   };
