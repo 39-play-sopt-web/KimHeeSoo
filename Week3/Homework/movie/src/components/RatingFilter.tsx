@@ -48,7 +48,7 @@ const ChipList = styled.ul`
     border-radius: ${({ theme }) => theme.radius.full};
     font-size: 14px;
     font-weight: 600;
-    transtion: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     background-color: ${({ theme, isSelected }) => (isSelected ? theme.colors.primary : theme.colors.surface)};
     color: ${({ theme, isSelected}) => (isSelected ? theme.colors.primaryText : theme.colors.textSub)};
     &:hover{
