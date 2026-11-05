@@ -30,10 +30,16 @@ export interface GetPostsParams {
     size?: number;
 }
 
-export interface PostListReponse {
+export interface PostListResponse {
     posts: Post[];
     nextCursor: number | null;
     hasNext: boolean;
+}
+
+export interface CreatePostRequest {
+    title: string;
+    content: string;
+    author: string;
 }
 
 export interface UpdatePostRequest {
