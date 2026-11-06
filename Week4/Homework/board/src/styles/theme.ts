@@ -17,7 +17,7 @@ export const theme = {
         lg: "16px",
     },
     layout: {
-        maxwidth: "860px",
+        maxWidth: "860px",
     },
     transition: "0.2s ease",
 } as const;
