@@ -28,7 +28,7 @@ export const TextInput = styled.input<{ $invalid?: boolean }>`
     ${fieldStyle}
 `;
 
-export const Textarea = styled.textarea<{ $invalid?: boolean}>`
+export const TextArea = styled.textarea<{ $invalid?: boolean}>`
     ${fieldStyle}
     min-height: 200px;
     resize: vertical;
