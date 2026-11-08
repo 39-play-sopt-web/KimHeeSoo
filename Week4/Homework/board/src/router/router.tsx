@@ -5,6 +5,7 @@ import PostListPage from "../pages/PostListPage";
 import PostDetailPage from "../pages/PostDetailPage";
 import PostCreatePage from "../pages/PostCreatePage";
 import PostEditPage from "../pages/PostEditPage";
+import { requireAuth } from "./requireAuth";
 
 export const router = createBrowserRouter([
     { path: "/", element: <LandingPage /> },
@@ -15,6 +16,9 @@ export const router = createBrowserRouter([
             {path: "/posts/new", element: <PostCreatePage /> },
             {path: "/posts/:postId", element: <PostDetailPage /> },
             {path: "/posts/:postId/edit", element: <PostEditPage /> },
+            { path: "/posts/new", element: <PostCreatePage />, loader: requireAuth },
+            { path: "/posts/:postId", element: <PostDetailPage /> },
+            { path: "/posts/:postId/edit", element: <PostEditPage />, loader: requireAuth },
         ],
     },
 
