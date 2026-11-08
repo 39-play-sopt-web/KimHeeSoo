@@ -1,4 +1,4 @@
-import { useState, type SubmitEvent } from "React";
+import { useState, type SubmitEvent } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import styled from "styled-components";
