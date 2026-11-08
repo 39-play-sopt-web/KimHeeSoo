@@ -5,7 +5,7 @@ export const issueAuthorizationCode = async (
     body: IssueCodeRequest,
 ): Promise<IssueCodeResponse> => {
     const { data } = await instance.post<ApiResponse<IssueCodeResponse>>(
-        "/memebers/authorization-code",
+        "/members/authorization-code",
         body,
     );
     return data.data;

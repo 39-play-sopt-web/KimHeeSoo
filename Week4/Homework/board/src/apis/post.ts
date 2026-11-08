@@ -41,7 +41,7 @@ export const updatePost = async ({
     postId: number;
     body: UpdatePostRequest;
 }): Promise<Post> => {
-    const { data } = await instance.put<ApiResponse<Post>>(`./posts/${postId}`, body);
+    const { data } = await instance.put<ApiResponse<Post>>(`/posts/${postId}`, body);
     return data.data;
 };
 
