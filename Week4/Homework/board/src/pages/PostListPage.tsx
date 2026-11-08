@@ -1,6 +1,6 @@
-import { useState, type SubmitEvent } from "react";
+import { useRef, useEffect, useState, type SubmitEvent } from "react";
 import { useSearchParams } from "react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import styled from "styled-components";
 import { getPosts } from "../apis/post";
 import { postKeys } from "../apis/queryKeys";
@@ -8,6 +8,7 @@ import PostCard from "../components/PostCard";
 import { StatusMessage } from "../components/StatusMessage";
 
 const KEYWORD_MIN_LENGTH = 2;
+const PAGE_SIZE = 10;
 
 export default function PostListPage() {
   const [searchParams, setSerachParams] = useSearchParams();
@@ -17,11 +18,31 @@ export default function PostListPage() {
   const trimmed = input.trim();
   const canSearch = trimmed.length >= KEYWORD_MIN_LENGTH;
 
-  const { data, isPending, isError, error } = useQuery({
-    queryKey: postKeys.list(keyword),
-    queryFn: () => getPosts({ keyword }),
+  const { data, isPending, isError, error, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: postKeys.list(keyword),
+      queryFn: ({ pageParam }) => getPosts({ keyword, cursor: pageParam, size: PAGE_SIZE }),
+      initialPageParam: undefined as number | undefined,
+      getNextPageParam: (lastPage) =>
+        lastPage.hasNext ? (lastPage.nextCursor ?? undefined) : undefined,
+    });
 
-  });
+  const posts = data?.pages.flatMap((page) => page.posts) ?? [];
+
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const target = sentinelRef.current;
+    if (!target || !hasNextPage) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isFetchingNextPage) fetchNextPage();
+      },
+      { rootMargin: "200px" }, 
+    );
+    observer.observe(target);
+    return () => observer.disconnect(); 
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   const handleSearch = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,18 +79,20 @@ export default function PostListPage() {
         <StatusMessage>게시글을 불러오는 중...</StatusMessage>
       ) : isError ? (
         <StatusMessage>목록을 불러오지 못했어요. ({error.message})</StatusMessage>
-      ) : data.posts.length === 0 ? (
+      ) : posts.length === 0 ? (
         <StatusMessage>
           {keyword ? `"${keyword}" 검색 결과가 없어요.` : "아직 게시글이 없어요."}
         </StatusMessage>
       ) : (
         <List>
-          {data.posts.map((post) => (
+          {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
         </List>
 
       )}
+        <div ref={sentinelRef} aria-hidden="true" />
+        {isFetchingNextPage && <StatusMessage>더 불러오는 중...</StatusMessage>}
     </section>
   );
 }
@@ -87,7 +110,7 @@ const SearchInput = styled.input`
   border-radius: ${({ theme }) => theme.radius.md};
   background: ${({ theme }) => theme.color.surface};
   outline: none;
-  transition: border-color ${({theme }) => theme.color.primary};
+  transition: border-color ${({ theme }) => theme.color.primary};
   
   &: focus {
     border-color: ${({ theme }) => theme.color.primary};
