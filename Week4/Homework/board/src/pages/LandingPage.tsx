@@ -110,7 +110,7 @@ const PartFieldset = styled.fieldset`
     border: none;
     
     legend {
-        postion: absolute;
+        position: absolute;
         width: 1px;
         height: 1px;
         overflow: hidden;

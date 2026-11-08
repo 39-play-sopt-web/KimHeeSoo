@@ -36,15 +36,15 @@ const CardLink = styled(Link)`
     background: ${({ theme }) => theme.color.surfaceHover};
     }
 
-    &: focus-visible {
+    &:focus-visible {
         outline: 2px solid ${({ theme }) => theme.color.primary};
-        outline: offset: 2px;
+        outline-offset: 2px;
     }
 `;
 
 const Title = styled.h2`
     font-size: 18px;
-    font-weight: 700,
+    font-weight: 700;
 `;
 
 const Content = styled.p`

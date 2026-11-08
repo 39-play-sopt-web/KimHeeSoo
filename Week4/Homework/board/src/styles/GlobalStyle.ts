@@ -44,6 +44,6 @@ ul, ol {
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
-    white-space: nowarp;
+    white-space: nowrap;
 }
 `;
