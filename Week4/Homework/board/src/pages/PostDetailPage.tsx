@@ -1,11 +1,14 @@
 import { Link, useNavigate, useParams } from "react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useAtomValue } from "jotai";
 import styled from "styled-components";
-import { getPostDetail } from "../apis/post";
+import { deletePost, getPostDetail } from "../apis/post";
 import { postKeys } from "../apis/queryKeys";
 import { StatusMessage } from "../components/StatusMessage";
-import { SecondaryButton } from "../components/form";
+import { PrimaryButton, SecondaryButton } from "../components/form";
+import { isLoggedInAtom } from "../stores/auth";
 import { formatDateTime } from "../utils/date";
+import { getErrorMessage } from "../utils/error";
 
 export default function PostDetailPage() {
   const { postId: postIdParam } = useParams();
@@ -13,6 +16,8 @@ export default function PostDetailPage() {
   const isValidId = Number.isInteger(postId) && postId > 0;
 
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const isLoggedIn = useAtomValue(isLoggedInAtom);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: postKeys.detail(postId),
@@ -20,7 +25,28 @@ export default function PostDetailPage() {
     enabled: isValidId,
   });
 
-  if (!isValidId) return <StatusMessage>잘못된 게시글 주소에요.</StatusMessage>
+  const { mutate: removePost, isPending: isDeleting } = useMutation({
+    mutationFn: deletePost,
+    onSuccess: () => {
+      alert("삭제되었어요.");
+      navigate("/posts", { replace: true });
+      queryClient.invalidateQueries({ queryKey: postKeys.lists() });
+      queryClient.invalidateQueries({ queryKey: postKeys.detail(postId), refetchType: "none" });
+    },
+    onError: (err) => alert(getErrorMessage(err, "삭제에 실패했어요.")),
+  });
+
+  const handleDelete = () => {
+    if (!isLoggedIn) {
+      alert("인증 코드가 필요해요. 코드를 먼저 발급받아 주세요.");
+      navigate("/");
+      return;
+    }
+    if (!confirm("정말 삭제할까요?")) return;
+    removePost(postId);
+  };
+
+  if (!isValidId) return <StatusMessage>잘못된 게시글 주소예요.</StatusMessage>
   if (isPending) return <StatusMessage>게시글을 불러오는 중...</StatusMessage>
   if (isError) return <StatusMessage>게시글을 불러오지 못했어요. ({error.message})</StatusMessage>
 
@@ -40,6 +66,9 @@ export default function PostDetailPage() {
           <SecondaryButton type="button" onClick={() => navigate(`/posts/${postId}/edit`)}>
             수정
           </SecondaryButton>
+          <PrimaryButton type="button" onClick={handleDelete} disabled={isDeleting}>
+            {isDeleting ? "삭제 중..." : "삭제"}
+          </PrimaryButton>
         </Actions>
       </Article>
     </>
@@ -83,7 +112,7 @@ const Meta = styled.p`
 
 const Author = styled.span`
   color: ${({ theme }) => theme.color.primary};
-  font-weight: 600,
+  font-weight: 600;
 `;
 
 const Content = styled.p`
