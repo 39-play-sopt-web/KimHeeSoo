@@ -71,7 +71,7 @@ const buttonBase = css`
     font-weight: 700;
     transition:
         background-color: ${({ theme }) => theme.transition};
-        color: ${({ theme }) => theme.transition}l
+        color: ${({ theme }) => theme.transition};
 
         &:disabled {
             opacity: 0.4;
