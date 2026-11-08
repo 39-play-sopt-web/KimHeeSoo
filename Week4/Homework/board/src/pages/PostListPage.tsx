@@ -11,7 +11,7 @@ const KEYWORD_MIN_LENGTH = 2;
 const PAGE_SIZE = 10;
 
 export default function PostListPage() {
-  const [searchParams, setSerachParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get("keyword") ?? "";
 
   const [input, setInput] = useState(keyword);
@@ -47,12 +47,12 @@ export default function PostListPage() {
   const handleSearch = (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!canSearch) return;
-    setSerachParams({ keyword: trimmed });
+    setSearchParams({ keyword: trimmed });
   };
 
   const handleInputChange = (value: string) => {
     setInput(value);
-    if (value.trim() == "" && keyword) setSerachParams({});
+    if (value.trim() == "" && keyword) setSearchParams({});
   };
 
   return (
