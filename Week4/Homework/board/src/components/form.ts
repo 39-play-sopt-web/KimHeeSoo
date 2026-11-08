@@ -8,19 +8,26 @@ export const Field = styled.div`
 
 export const FieldLabel = styled.label`
     font-size: 14px;
-    font-weight: 600;\
+    font-weight: 600;
     color: ${({ theme }) => theme.color.textSub};
 `;
 
 const fieldStyle = css<{ $invalid?: boolean }>`
-    width: 100%Z;
+    width: 100%;
     padding: 14px 16px;
     border: 1px solid
         ${({ theme, $invalid }) => ($invalid ? theme.color.danger : theme.color.border)};
-    border-radius: ${({ theme }) =>  theme.transition};
+    border-radius: ${({ theme }) => theme.radius.md};
+    background: ${({ theme }) => theme.color.surface};
+    outline: none;
+    transition: border-color ${({ theme }) => theme.transition};
     
     &:focus {
-        border-color: ${({ theme }) => theme.color.textSub};
+    border-color: ${({ theme, $invalid }) => ($invalid ? theme.color.danger : theme.color.primary)};
+    }
+
+    &::placeholder {
+    color: ${({ theme }) => theme.color.textSub};
     }
 `;
 
@@ -28,7 +35,7 @@ export const TextInput = styled.input<{ $invalid?: boolean }>`
     ${fieldStyle}
 `;
 
-export const TextArea = styled.textarea<{ $invalid?: boolean}>`
+export const TextArea = styled.textarea<{ $invalid?: boolean }>`
     ${fieldStyle}
     min-height: 200px;
     resize: vertical;
@@ -47,7 +54,7 @@ export const ErrorText = styled.p`
     color: ${({ theme }) => theme.color.danger};
 `;
 
-export const Counter = styled.span<{ $over: boolean}>`
+export const Counter = styled.span<{ $over: boolean }>`
     margin-left: auto;
     color: ${({ theme, $over }) => ($over ? theme.color.danger : theme.color.textSub)};
 `;
@@ -63,8 +70,8 @@ const buttonBase = css`
     border-radius: ${({ theme }) => theme.radius.md};
     font-weight: 700;
     transition:
-        background-color: ${({ theme }) => theme.transition};
-        color ${({ theme }) => theme.transition};
+        background-color: ${({ theme }) => theme.transition},
+        color: ${({ theme }) => theme.transition},
 
         &:disabled {
             opacity: 0.4;
@@ -76,7 +83,7 @@ export const PrimaryButton = styled.button`
     background: ${({ theme }) => theme.color.primary};
     color: ${({ theme }) => theme.color.primary};
     
-    &:hober:not(:disabled) {
+    &:hover:not(:disabled) {
         background: ${({ theme }) => theme.color.primaryHover};
     }
 `;
@@ -86,7 +93,7 @@ export const SecondaryButton = styled.button`
     border: 1px solid ${({ theme }) => theme.color.border};
     color: ${({ theme }) => theme.color.text};
     
-    &:hober:not(:disabled) {
+    &:hover:not(:disabled) {
         background: ${({ theme }) => theme.color.surfaceHover};
     }
 `;
