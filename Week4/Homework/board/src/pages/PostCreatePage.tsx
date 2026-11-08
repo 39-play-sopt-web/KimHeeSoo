@@ -139,7 +139,7 @@ export default function PostCreatePage() {
           </SecondaryButton>
           {stepIndex > 0 && (
             <SecondaryButton type="button" onClick={() => setStep(STEPS[stepIndex - 1])}>
-
+              이전
             </SecondaryButton>
           )}
           <PrimaryButton type="submit" disabled={!canProceed}>
