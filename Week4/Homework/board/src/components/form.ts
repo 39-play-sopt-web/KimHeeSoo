@@ -70,8 +70,8 @@ const buttonBase = css`
     border-radius: ${({ theme }) => theme.radius.md};
     font-weight: 700;
     transition:
-        background-color: ${({ theme }) => theme.transition},
-        color: ${({ theme }) => theme.transition},
+        background-color: ${({ theme }) => theme.transition};
+        color: ${({ theme }) => theme.transition}l
 
         &:disabled {
             opacity: 0.4;
@@ -80,7 +80,7 @@ const buttonBase = css`
 
 export const PrimaryButton = styled.button`
     ${buttonBase}
-    background: ${({ theme }) => theme.color.primary};
+    background: ${({ theme }) => theme.color.onPrimary};
     color: ${({ theme }) => theme.color.primary};
     
     &:hover:not(:disabled) {
