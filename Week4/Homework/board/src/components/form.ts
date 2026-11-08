@@ -75,13 +75,14 @@ const buttonBase = css`
 
         &:disabled {
             opacity: 0.4;
+            cursor: not-allowed;
         }
 `;
 
 export const PrimaryButton = styled.button`
     ${buttonBase}
-    background: ${({ theme }) => theme.color.onPrimary};
-    color: ${({ theme }) => theme.color.primary};
+    background: ${({ theme }) => theme.color.primary};
+    color: ${({ theme }) => theme.color.onPrimary};
     
     &:hover:not(:disabled) {
         background: ${({ theme }) => theme.color.primaryHover};

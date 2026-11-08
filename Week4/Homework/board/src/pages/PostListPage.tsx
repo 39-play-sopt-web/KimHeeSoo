@@ -104,7 +104,7 @@ const SearchForm = styled.form`
 `;
 
 const SearchInput = styled.input`
-  flex: 1,
+  flex: 1;
   padding: 12px 16px;
   border: 1px solid ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.radius.md};
@@ -112,7 +112,7 @@ const SearchInput = styled.input`
   outline: none;
   transition: border-color ${({ theme }) => theme.color.primary};
   
-  &: focus {
+  &:focus {
     border-color: ${({ theme }) => theme.color.primary};
   }
     
@@ -123,7 +123,7 @@ const SearchInput = styled.input`
 
 const SearchButton = styled.button`
   padding: 0 20px;
-  border-raidus: ${({ theme }) => theme.radius.md};
+  border-radius: ${({ theme }) => theme.radius.md};
   background: ${({ theme }) => theme.color.primary};
   color: ${({ theme }) => theme.color.onPrimary};
   font-weight: 700;
