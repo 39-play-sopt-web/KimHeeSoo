@@ -12,10 +12,7 @@ export const router = createBrowserRouter([
     {
         element: <Layout />,
         children: [
-            {path: "/posts", element: <PostListPage /> },
-            {path: "/posts/new", element: <PostCreatePage /> },
-            {path: "/posts/:postId", element: <PostDetailPage /> },
-            {path: "/posts/:postId/edit", element: <PostEditPage /> },
+            { path: "/posts", element: <PostListPage /> },
             { path: "/posts/new", element: <PostCreatePage />, loader: requireAuth },
             { path: "/posts/:postId", element: <PostDetailPage /> },
             { path: "/posts/:postId/edit", element: <PostEditPage />, loader: requireAuth },
