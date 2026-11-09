@@ -137,7 +137,7 @@ const Grid = styled.ul`
             gap: 24px;
 
             ${({ theme }) => theme.media.mobile} {
-                grid - template - columns: repeat(2, minmax(0, 1fr));
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
     }
             `;

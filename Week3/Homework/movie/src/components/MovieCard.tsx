@@ -87,14 +87,14 @@ const Poster = styled.img`
 `;
 
 const NoPoster = styled.div`
-    display: flex,
-    align-items: center,
-    justify-content: center,
-    width: 100%,
-    height: 100%,
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     color: ${({ theme }) => theme.colors.textMuted};
-    font-size: 14px,
-    font-weight: 600,
+    font-size: 14px;
+    font-weight: 600;
 `;
 
 const RatingBadge = styled.span`

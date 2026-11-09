@@ -38,7 +38,7 @@ export default RatingFilter;
 
 const ChipList = styled.ul`
     display: flex;
-    flew-wrap: wrap;
+    flex-wrap: wrap;
     gap: 8px;  
     margin-bottom: 32px;
 `;
