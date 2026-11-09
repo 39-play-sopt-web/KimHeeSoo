@@ -26,7 +26,7 @@ export const theme = {
     },
 
     fonts: {
-        base: "'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif",
+        base: "'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif",
     },
 
     media: {
