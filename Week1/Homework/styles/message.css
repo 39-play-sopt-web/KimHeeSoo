@@ -1,0 +1,18 @@
+.letter {
+    padding: 20px 24px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    line-height: 1.9;
+}
+
+.letter p::before {
+    content: "♥";
+    margin-right: 6px;
+    color: #e0393e;
+}
+
+.letter p::after {
+    content: "♥";
+    margin-right: 6px;
+    color: #e0393e;
+}
