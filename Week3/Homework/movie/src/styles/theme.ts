@@ -31,7 +31,7 @@ export const theme = {
 
     media: {
         tablet: '@media (max-width: 1024px)',
-        mobile: '@media )max-width: 640px)',
+        mobile: '@media (max-width: 640px)',
     },
 } as const;
 
