@@ -59,6 +59,7 @@ const Card = styled(Link)`
     transform: translateY(-6px);
     box-shadow: ${({ theme }) => theme.shadow.cardHover};
     border-color: ${({ theme }) => theme.colors.primary};
+    }
 
     @media (prefers-reduced-motion: reduce) {
     &,
