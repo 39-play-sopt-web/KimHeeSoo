@@ -26,12 +26,12 @@ export const theme = {
     },
 
     fonts: {
-        base: "'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif",
+        base: "'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif",
     },
 
     media: {
         tablet: '@media (max-width: 1024px)',
-        mobile: '@media )max-width: 640px)',
+        mobile: '@media (max-width: 640px)',
     },
 } as const;
 
